@@ -1,0 +1,56 @@
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const path = require("path");
+
+const connectDB = require("./config/db");
+
+const authRoutes = require("./routes/authRoutes");
+const projectRoutes = require("./routes/projectRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const rainfallRoutes = require("./routes/rainfallRoutes");
+
+dotenv.config({ path: ".env" });
+
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
+
+connectDB();
+
+const app = express();
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173"
+  })
+);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
+);
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Rainwater Harvesting API is running"
+  });
+});
+
+app.use("/api/auth", authRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/rainfall", rainfallRoutes);
+
+app.use((req, res) => {
+  res.status(404).json({
+    message: "Route not found"
+  });
+});
+
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

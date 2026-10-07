@@ -1,0 +1,147 @@
+/* =========================================================
+   RAINWATER HARVESTING - GLOBAL STYLES
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #172b27;
+  background: #f3f8f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --water-green: #087f5b;
+  --water-green-dark: #103f36;
+  --water-blue: #168aad;
+  --page-bg: #f3f8f7;
+  --text: #172b27;
+  --muted: #667a75;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 90% 5%, rgba(22, 138, 173, 0.07), transparent 25%),
+    radial-gradient(circle at 5% 20%, rgba(8, 127, 91, 0.06), transparent 25%),
+    var(--page-bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: 20px;
+}
+
+::selection {
+  background: #cceee4;
+  color: #0f3d35;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eaf2ef;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a9c2bb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #75988e;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aa6a2;
+}
+
+input[type="file"] {
+  padding: 8px;
+}
+
+input[type="file"]::file-selector-button {
+  border: none;
+  background: #e5f6f0;
+  color: #087f5b;
+  padding: 8px 13px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #d3eee6;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(22, 138, 173, 0.2);
+  outline-offset: 3px;
+}
+
+::placeholder {
+  opacity: 1;
+}
