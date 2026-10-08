@@ -12,8 +12,6 @@ const rainfallRoutes = require("./routes/rainfallRoutes");
 
 dotenv.config({ path: ".env" });
 
-console.log("MONGODB_URI:", process.env.MONGODB_URI);
-
 connectDB();
 
 const app = express();
@@ -51,6 +49,6 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
